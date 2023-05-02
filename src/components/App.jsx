@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { GlobalStyle } from './GlobalStyle';
+
 import { Searchbar } from './Searchbar/Searchbar';
 import { Layout } from './Layout/Layout';
 
-export default class App extends Component {
+export class App extends Component {
   state = {
     textSearch: '',
   };
@@ -12,8 +13,6 @@ export default class App extends Component {
     this.setState({ textSearch });
   };
   render() {
-    const { textSearch } = this.state;
-
     return (
       <>
         <Searchbar onSubmit={this.handleSubmit} />
