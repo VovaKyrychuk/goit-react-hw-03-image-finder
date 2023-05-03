@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { getImages } from 'services/getApi';
+import getImages from 'services/getApi';
 import { List, Text } from './ImageGallery.styled';
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 import { Loader } from '../Loader/Loader';
