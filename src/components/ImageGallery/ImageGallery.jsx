@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import getImages from 'services/getApi';
-import { List, Text } from './ImageGallery.styled';
+import { List } from './ImageGallery.styled';
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 import { Loader } from '../Loader/Loader';
 import { Button } from 'components/Button/Button';
@@ -32,8 +32,6 @@ export default class ImageGallery extends Component {
     modalData: { tags: '' },
   };
 
-  // перевіряємо, щоб в пропсах змінився запит
-  // y static відсутній this, тому дублюємо в state - search: ''
   static getDerivedStateFromProps(nextProps, prevState) {
     if (prevState.value !== nextProps.value) {
       return { page: 1, value: nextProps.value };
@@ -45,11 +43,10 @@ export default class ImageGallery extends Component {
     const { page } = this.state;
     const prevValue = prevProps.value;
     const nextValue = this.props.value;
-    //   страхуємо від повторного запиту, якщо вже таке слово було введене
+
     if (prevValue !== nextValue || prevState.page !== page) {
       this.setState({ status: Status.PENDING });
 
-      // перевіряємо чи є помилка, якщо є - записуємо null
       if (this.state.error) {
         this.setState({ error: null });
       }
@@ -67,7 +64,6 @@ export default class ImageGallery extends Component {
     }
   }
 
-  // custom method to btn load
   handleLoadMore = () => {
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
@@ -86,14 +82,6 @@ export default class ImageGallery extends Component {
 
     if (status === 'pending') {
       return <Loader />;
-    }
-
-    if (images.length === 0) {
-      return (
-        <Text
-          message={`Oops... there are no images matching your search... `}
-        />
-      );
     }
 
     if (status === 'resolved') {
