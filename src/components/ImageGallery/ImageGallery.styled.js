@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 
 export const Text = styled.p`
   max-width: 80%;
-  color: ${props => props.theme.colors.accent};
+  color: ${props => props.theme.colors.gray};
   text-align: center;
   font-size: 18px;
 `;

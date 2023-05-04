@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ReactComponent as SearchIcon } from 'icons/search.svg';
 import {
   Header,
   SearchForm,
@@ -32,7 +33,9 @@ export class Searchbar extends Component {
     return (
       <Header>
         <SearchForm onSubmit={this.handleSubmit}>
-          <SearchFormBtn>Search</SearchFormBtn>
+          <SearchFormBtn>
+            <SearchIcon width="28" height="28" fill="gray" />
+          </SearchFormBtn>
           <SearchFormInput
             type="text"
             autocomplete="off"

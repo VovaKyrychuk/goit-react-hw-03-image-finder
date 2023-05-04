@@ -4,12 +4,13 @@ export const Btn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   margin: 0 auto;
   margin-bottom: 4px;
-  padding-right: 4px;
-  padding-left: 4px;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border: none;
   border-radius: 8px;
   font-size: 16 px;
@@ -17,6 +18,7 @@ export const Btn = styled.button`
   background-color: ${props => props.theme.colors.gray};
   &:hover,
   &:focus {
-    transform: scale(0.8);
+    background-color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.white};
   }
 `;
