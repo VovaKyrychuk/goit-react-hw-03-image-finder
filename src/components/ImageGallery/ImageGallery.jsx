@@ -24,10 +24,8 @@ export default class ImageGallery extends Component {
     images: [],
     error: null,
     status: Status.IDLE,
-
     page: 1,
     totalPages: 0,
-
     isShowModal: false,
     modalData: { tags: '' },
   };
